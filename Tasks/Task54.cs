@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HomeworkSeminar17072023.Tasks
 {
@@ -22,7 +18,42 @@ namespace HomeworkSeminar17072023.Tasks
     {
         internal static void SortInDescending()
         {
+            var random = new Random();
+            var array = new int[random.Next(4, 10), random.Next(4, 10)];
 
+            Console.WriteLine("Задача 54: Задайте двумерный массив. Напишите программу, " +
+                "которая упорядочит по убыванию элементы каждой строки двумерного массива." +
+                "\n" + new string('-', 30));
+            Console.WriteLine("Двумерный массив целых чисел (от 1 по 20)");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    array[i, j] = random.Next(1, 21);
+                    Console.Write(array[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                {
+                    int index = j;
+                    for (int k = j; k < array.GetLength(1); k++)
+                    {
+                        if (array[i, index] < array[i, k])
+                            index = k;
+                    }
+                    (array[i, index], array[i, j]) = (array[i, j], array[i, index]);
+                }
+            }
+            Console.WriteLine("\nМассив после сортировки строк по убыванию");
+            for (int i = 0; i < array.GetLength(0); i++)
+            {
+                for (int j = 0; j < array.GetLength(1); j++)
+                    Console.Write(array[i, j] + "\t");
+                Console.WriteLine();
+            }
         }
     }
 }
