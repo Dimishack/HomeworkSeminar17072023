@@ -29,33 +29,27 @@ namespace HomeworkSeminar17072023.Tasks
             var spiralArray = new int[maxRow, maxColumn];
             do
             {
-                while (columnIndex < maxColumn)
+                while (columnIndex < maxColumn - 1)
                 {
                     spiralArray[rowIndex, columnIndex] = number++;
                     columnIndex++;
                 }
-                rowIndex++;
-                columnIndex--;
-                while (rowIndex < maxRow)
+                while (rowIndex < maxRow - 1)
                 {
                     spiralArray[rowIndex, columnIndex] = number++;
                     rowIndex++;
                 }
-                rowIndex--;
-                columnIndex--;
-                while (columnIndex >= minColumn)
+                while (columnIndex > minColumn)
                 {
                     spiralArray[rowIndex, columnIndex] = number++;
                     columnIndex--;
                 }
-                minRow++;
-                rowIndex--;
-                columnIndex++;
-                while (rowIndex >= minRow)
+                while (rowIndex > minRow)
                 {
                     spiralArray[rowIndex, columnIndex] = number++;
                     rowIndex--;
                 }
+                minRow++;
                 minColumn++;
                 maxColumn--;
                 maxRow--;
