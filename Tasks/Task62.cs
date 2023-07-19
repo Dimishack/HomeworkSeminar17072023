@@ -20,48 +20,24 @@ namespace HomeworkSeminar17072023.Tasks
         internal static void FillSpiral()
         {
             int number = 1;
-            int rowIndex = 0;
-            int columnIndex = 0;
-            int maxRow = 4;
-            int maxColumn = 4;
-            int minColumn = 0;
-            int minRow = 0;
-            var spiralArray = new int[maxRow, maxColumn];
-            do
+            var spiralArray = new int[4, 4];
+            for (int i = 0; number <= spiralArray.Length && i < spiralArray.Length / 2; i++)
             {
-                while (columnIndex < maxColumn - 1)
-                {
+                int rowIndex = 0 + i;
+                int columnIndex = 0 + i;
+                for (; columnIndex < spiralArray.GetLength(1) - 1 - i; columnIndex++)
                     spiralArray[rowIndex, columnIndex] = number++;
-                    columnIndex++;
-                }
-                while (rowIndex < maxRow - 1)
-                {
+                for (; rowIndex < spiralArray.GetLength(1) - 1 - i; rowIndex++)
                     spiralArray[rowIndex, columnIndex] = number++;
-                    rowIndex++;
-                }
-                while (columnIndex > minColumn)
-                {
+                for (; columnIndex > i; columnIndex--)
                     spiralArray[rowIndex, columnIndex] = number++;
-                    columnIndex--;
-                }
-                while (rowIndex > minRow)
-                {
+                for (; rowIndex > i; rowIndex--)
                     spiralArray[rowIndex, columnIndex] = number++;
-                    rowIndex--;
-                }
-                minRow++;
-                minColumn++;
-                maxColumn--;
-                maxRow--;
-                rowIndex++;
-                columnIndex++;
-            } while (number <= spiralArray.Length);
+            }
             for (int i = 0; i < spiralArray.GetLength(0); i++)
             {
                 for (int j = 0; j < spiralArray.GetLength(1); j++)
-                {
                     Console.Write(spiralArray[i, j] + "\t");
-                }
                 Console.WriteLine();
             }
         }
