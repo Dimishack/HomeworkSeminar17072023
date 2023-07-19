@@ -20,24 +20,24 @@ namespace HomeworkSeminar17072023.Tasks
         internal static void FillSpiral()
         {
             int number = 1;
-            var spiralArray = new int[4, 4];
+            var spiralArray = new string[4, 4];
             for (int i = 0; number <= spiralArray.Length && i < spiralArray.Length / 2; i++)
             {
-                int rowIndex = 0 + i;
-                int columnIndex = 0 + i;
+                int rowIndex = i;
+                int columnIndex = i;
                 for (; columnIndex < spiralArray.GetLength(1) - 1 - i; columnIndex++)
-                    spiralArray[rowIndex, columnIndex] = number++;
+                    spiralArray[rowIndex, columnIndex] = String.Format("{0:00}",number++);
                 for (; rowIndex < spiralArray.GetLength(1) - 1 - i; rowIndex++)
-                    spiralArray[rowIndex, columnIndex] = number++;
+                    spiralArray[rowIndex, columnIndex] = String.Format("{0:00}",number++);
                 for (; columnIndex > i; columnIndex--)
-                    spiralArray[rowIndex, columnIndex] = number++;
+                    spiralArray[rowIndex, columnIndex] = String.Format("{0:00}",number++);
                 for (; rowIndex > i; rowIndex--)
-                    spiralArray[rowIndex, columnIndex] = number++;
+                    spiralArray[rowIndex, columnIndex] = String.Format("{0:00}",number++);
             }
             for (int i = 0; i < spiralArray.GetLength(0); i++)
             {
                 for (int j = 0; j < spiralArray.GetLength(1); j++)
-                    Console.Write(spiralArray[i, j] + "\t");
+                    Console.Write(spiralArray[i, j] + "  ");
                 Console.WriteLine();
             }
         }
